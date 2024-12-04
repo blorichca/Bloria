@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- Home page -->
+   <url>
+      <loc>https://bloria.com/</loc>
+      <lastmod>2024-09-18</lastmod>
+      <priority>1.00</priority>
+   </url>
+
+   <!-- CV PDF -->
+   <url>
+      <loc>https://bloria.com/BloriaGordonCV24.pdf</loc>
+      <lastmod>2024-08-06</lastmod>
+      <priority>0.80</priority>
+   </url>
+
+   <!-- Blorism Page -->
+   <url>
+      <loc>https://bloria.com/blorism.html</loc>
+      <lastmod>2024-09-18</lastmod>
+      <priority>0.80</priority>
+   </url>
+
+   <!-- Contact Page -->
+   <url>
+      <loc>https://bloria.com/contact.html</loc>
+      <lastmod>2024-09-18</lastmod>
+      <priority>0.80</priority>
+   </url>
+</urlset>

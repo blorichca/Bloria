@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratitude Workbook - Unlock Your Self-Discovery Journey</title>
+    <link href="http://bloria.com/css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalnia:wdth,wght@100..125,100..700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+        }
+        
+        body {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand {
+            font-size: 1.25rem;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-padding {
+            padding: 3rem 1rem;
+        }
+        
+        .card {
+            height: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial {
+            background-color: #f8f9fa;
+        }
+        
+        .cta {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        #quote-generator {
+            background-color: #e9ecef;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        #quote-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        #quote-author {
+            font-weight: bold;
+        }
+        
+        @media (min-width: 768px) {
+            .hero {
+                padding: 6rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.25rem;
+            }
+            
+            .section-padding {
+                padding: 5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gratitude Workbook</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Unlock Self-Discovery: A Gratitude Journey Awaits</h1>
+            <p>Embrace gratitude, transform your life with our guided daily workbook</p>
+            <a href="https://www.amazon.com/dp/B0D4YZ4LMX" class="btn btn-light btn-lg">Start Your Journey Today</a>
+        </div>
+    </header>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h2>About the Gratitude Workbook</h2>
+                    <p>Welcome to your Gratitude Journal, a sanctuary for self-reflection and growth. This journal is designed to guide you on a transformative journey of self-discovery and inner peace. Within these pages, you’ll find inspiration from the profound wisdom of great thinkers like Carl Jung, Lao Tzu, and Ralph Waldo Emerson, whose quotes illuminate the path to understanding and embracing your true self.
+
+</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <img src="https://m.media-amazon.com/images/I/21WJkDbBLyL._SY445_SX342_.jpg" alt="Gratitude Workbook" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quote-generator" class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-4">Daily Gratitude Quote</h2>
+            <div id="quote-text"></div>
+            <div id="quote-author"></div>
+            <button id="new-quote" class="btn btn-primary mt-3">New Quote</button>
+        </div>
+    </section>
+
+    <section id="features" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Workbook Features</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Daily Prompts</h5>
+                            <p class="card-text">Guided self-reflection through thoughtfully crafted daily prompts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Gratitude Exercises</h5>
+                            <p class="card-text">Cultivate a positive outlook with regular gratitude practices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Self-Care Techniques</h5>
+                            <p class="card-text">Learn and implement effective self-care strategies for overall well-being.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding testimonial">
+        <div class="container">
+            <h2 class="text-center mb-4">What Our Users Say</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"This workbook has truly transformed my outlook on life. I feel more grateful and content every day."</p>
+                            <footer class="blockquote-footer">Sarah J.</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"The daily prompts are incredibly thought-provoking. I've learned so much about myself."</p>
+                            <footer class="blockquote-footer">Michael T.</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="section-padding cta">
+        <div class="container">
+            <h2 class="mb-4">Ready to Begin Your Gratitude Journey?</h2>
+            <a href="#" class="btn btn-light btn-lg">Order Your Copy Now</a>
+        </div>
+    </section>
+
+
+
+    <footer class="bg-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Gratitude Workbook. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const quotes = [
+            { text: "Gratitude turns what we have into enough.", author: "Aesop" },
+            { text: "Gratitude is the fairest blossom which springs from the soul.", author: "Henry Ward Beecher" },
+            { text: "Gratitude is not only the greatest of virtues, but the parent of all others.", author: "Cicero" },
+            { text: "Gratitude is the sign of noble souls.", author: "Aesop" },
+            { text: "When we focus on our gratitude, the tide of disappointment goes out and the tide of love rushes in.", author: "Kristin Armstrong" }
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            document.getElementById('quote-text').textContent = `"${quote.text}"`;
+            document.getElementById('quote-author').textContent = `- ${quote.author}`;
+        }
+
+        document.getElementById('new-quote').addEventListener('click', generateQuote);
+
+        // Generate initial quote
+        generateQuote();
+    </script>
+</body>
+</html>

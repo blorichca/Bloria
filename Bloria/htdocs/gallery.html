@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+    #portfolio .card {
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+#portfolio .card:hover {
+  transform: scale(1.05);
+}
+#portfolio .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+<!-- CSS for Modal and Gallery -->
+<style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .modal-content {
+    position: relative;
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+
+    </head>
+
+<body>
+  
+    <div class="cover-container">
+    
+    
+        <!-- Project 1: LTW -->
+<!-- Project 1: LTW -->
+<div class="col">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" align="center">LTW: Learning to Work at its Best</h5>
+            <!-- Project Overview -->
+            <p align="center">
+                The Learning to Work (LTW) program in NYC partners community-based organizations (CBOs) with transfer high schools and Young Adult Borough Centers (YABCs) to re-engage students who haven’t succeeded in traditional settings. My role was to create engaging flyers, design research reports, and build a resource hub based on research findings.
+            </p>
+
+            <!-- Specific Contributions and Tools Used -->
+            <h6>My Role amd Tools:</h6>
+            <ul>
+                <li>Created flyers and infographics for research dissemination and public engagement.</li>
+                <li>Designed the LTW At Its Best Transfer School and YABC Reports (2024).</li>
+                <li>Built a Google site to house resources and tools from the research.</li>
+                <li>Tools: Adobe Photoshop, Illustrator, Human-Centered Design, UX.</li>
+            </ul>
+
+            <!-- Challenges & Problem-Solving -->
+            <h6>Challenges amd Solutions:</h6>
+            <p>
+                A major challenge was organizing design elements across multiple platforms (Google Docs, reports, and a Google Site) while maintaining consistency. I streamlined collaboration by creating a clear file system and ensured the right icons matched each section of the reports.
+            </p>
+
+            <!-- Results & Impact -->
+            <h6>Outcomes:</h6>
+            <p>
+                The project delivered 3 flyers, 2 comprehensive reports, 5 tools for educators, and 1 Google Site that centralizes resources, helping educators better implement the LTW model. These tools have been crucial in supporting the re-engagement of students facing educational challenges.
+            </p>
+
+            <!-- Reports and Resource Hub -->
+            <h6>Key Deliverables:</h6>
+            <ul>
+                <li><a href="path-to/LTW_Transfer_School_Report_2024_FINAL.pdf" target="_blank">LTW At Its Best Transfer School Report 2024</a></li>
+                <li><a href="path-to/LTW_YABC_Report_2024_FINAL.pdf" target="_blank">LTW At Its Best YABC Report 2024</a></li>
+                <li><a href="path-to/LTW_WBL_Resource_Hub" target="_blank">LTW  Learning Resource Hub</a></li>
+            </ul>
+
+            <!-- Call to Action: View More -->
+            <a href="https://bloria.com/ltw_project.html" class="btn btn-primary">View Full Project</a>
+        </div>
+    </div>
+</div>
+
+    </div>
+        
+    
+    
+<section id="portfolio" class="py-5">
+  <div class="container">
+    <div class="row">
+      <!-- First Portfolio Item -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://bloria.com/img/LTW_info.png" class="card-img-top img-thumbnail" alt="Graphic Design Example 1">
+          <div class="card-body">
+            <h5 class="card-title">Path to self-discovery</h5>
+            <p class="card-text">Brief description of the work.</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal1">
+              View Images
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Second Portfolio Item -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://bloria.com/img/cover8.jpg" class="card-img-top img-fluid" alt="Graphic Design Example 2">
+          <div class="card-body">
+            <h5 class="card-title">מסע אל עצמי</h5>
+            <p class="card-text">Brief description of the work.</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal2">
+              View Images
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modals -->
+  <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel1">Path to self-discovery</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselExample1" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://bloria.com/img/img/LTW_info.png" class="d-block w-100 img-fluid" alt="Image 1">
+              </div>
+              <div class="carousel-item">
+                <img src="https://bloria.com/img/inside7.png" class="d-block w-100 img-fluid" alt="Image 2">
+              </div>
+              <div class="carousel-item">
+                <img src="https://bloria.com/img/inside7.png" class="d-block w-100 img-fluid" alt="Image 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel2">מסע אל עצמי</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://bloria.com/img/inside8.jpg" class="d-block w-100 img-fluid" alt="Image 1">
+              </div>
+              <div class="carousel-item">
+                <img src="https://bloria.com/img/inside8.jpg" class="d-block w-100 img-fluid" alt="Image 2">
+              </div>
+              <div class="carousel-item">
+                <img src="https://bloria.com/img/inside8.jpg" class="d-block w-100 img-fluid" alt="Image 3">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <div class="container mt-5">
+  <h4>Project Images</h4>
+  <div class="row">
+    <div class="col-md-3">
+      <img src="https://bloria.com/img/image1_thumbnail.jpg" class="img-fluid" alt="LTW Image 1" onclick="openModal();currentSlide(1)">
+    </div>
+    <div class="col-md-3">
+      <img src="https://bloria.com/img/image2_thumbnail.jpg" class="img-fluid" alt="LTW Image 2" onclick="openModal();currentSlide(2)">
+    </div>
+    <div class="col-md-3">
+      <img src="https://bloria.com/img/image3_thumbnail.jpg" class="img-fluid" alt="LTW Image 3" onclick="openModal();currentSlide(3)">
+    </div>
+    <div class="col-md-3">
+      <img src="https://bloria.com/img/image4_thumbnail.jpg" class="img-fluid" alt="LTW Image 4" onclick="openModal();currentSlide(4)">
+    </div>
+  </div>
+</div>
+
+<!-- Modal Structure for Image Gallery -->
+<div id="imageModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <!-- Full Images in Modal -->
+    <div class="mySlides">
+      <img src="https://bloria.com/img/image1_full.jpg" class="img-fluid" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="https://bloria.com/img/image2_full.jpg" class="img-fluid" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="https://bloria.com/img/image3_full.jpg" class="img-fluid" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <img src="https://bloria.com/img/image4_full.jpg" class="img-fluid" style="width:100%">
+    </div>
+
+    <!-- Next/Previous Buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+</div>
+    
+    <script>
+  function openModal() {
+    document.getElementById("imageModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "block";
+  }
+</script>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

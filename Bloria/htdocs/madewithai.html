@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Perspective Box</title>
+    <style>
+        
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #CCD9CC;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .magic-box {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, #D9BFC8, #F2BBD5);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(13, 13, 13, 0.3);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .magic-box:hover {
+      transform: scale(1.05);
+    }
+    .box-lid {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #B8D9C0, #CCD9CC);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0D0D0D;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    transition: transform 0.5s ease;
+    z-index: 2;
+    }
+    .box-lid.open {
+      transform: translateY(-100%);
+    }
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #0D0D0D;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+    .content.visible {
+      opacity: 1;
+    }
+    #token {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    #message {
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    #reflection {
+      font-style: italic;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+        .scene {
+            width: 200px;
+            height: 200px;
+            perspective: 600px;
+            margin: 100px auto;
+        }
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: translateZ(-100px);
+            transition: transform 1s;
+        }
+        .cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
+        .cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
+        .cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
+        .cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
+        .cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+        .cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+        .cube__face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            line-height: 200px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+        .cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+        .cube__face--right  { background: hsla( 60, 100%, 50%, 0.7); }
+        .cube__face--back   { background: hsla(120, 100%, 50%, 0.7); }
+        .cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+        .cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+        .cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+        .cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+        .cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+        .cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+        .cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+        .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+        .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+        label { margin-right: 10px; }
+        .cube-controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+    <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front">Manifest</div>
+            <div class="cube__face cube__face--back">Self-Care</div>
+            <div class="cube__face cube__face--right">right</div>
+            <div class="cube__face cube__face--left">left</div>
+            <div class="cube__face cube__face--top">top</div>
+            <div class="cube__face cube__face--bottom">Joy</div>
+        </div>
+    </div>
+    <div class="cube-controls">
+        <p>
+            <label><input type="radio" name="rotate" value="joy" checked> Front</label>
+            <label><input type="radio" name="rotate" value="self-car"> Right</label>
+            <label><input type="radio" name="rotate" value="back"> Back</label>
+            <label><input type="radio" name="rotate" value="left"> Left</label>
+            <label><input type="radio" name="rotate" value="top"> Top</label>
+            <label><input type="radio" name="rotate" value="bottom"> Bottom</label>
+        </p>
+    </div>
+    
+   
+    
+    
+    
+    
+    <script>
+        var cube = document.querySelector('.cube');
+        var radioGroup = document.querySelector('.cube-controls');
+        var currentClass = '';
+        function changeSide() {
+            var checkedRadio = radioGroup.querySelector(':checked');
+            var showClass = 'show-' + checkedRadio.value;
+            if ( currentClass ) {
+                cube.classList.remove( currentClass );
+            }
+            cube.classList.add( showClass );
+            currentClass = showClass;
+        }
+        // set initial side
+        changeSide();
+        radioGroup.addEventListener( 'change', changeSide );
+    </script>
+   
+    </section>
+   <br>
+<br>
+     
+        
+    <section align="center">
+    <div class="magic-box" id="magicBox">
+    <div class="box-lid" id="boxLid">Tap to open your daily magic box</div>
+    <div class="content" id="content">
+      <div id="token"></div>
+      <div id="message"></div>
+      <div id="reflection"></div>
+    </div>
+  </div>
+
+  <script>
+    const magicBox = document.getElementById('magicBox');
+    const boxLid = document.getElementById('boxLid');
+    const content = document.getElementById('content');
+    const token = document.getElementById('token');
+    const message = document.getElementById('message');
+    const reflection = document.getElementById('reflection');
+
+    const tokenMap = {
+      '💎': 'strength and clarity',
+      '🪶': 'lightness and letting go',
+      '🔑': 'unlocking potential',
+      '🌱': 'growth and new beginnings',
+      '🕯️': 'inner light and wisdom',
+      '🧭': 'direction and purpose'
+    };
+
+    const reflections = [
+      "What are you thankful for today?",
+      "What self-care have you practiced?",
+      "How have you shown kindness to yourself or others?",
+      "What new insight have you gained recently?",
+      "How can you nurture your growth today?",
+      "What strength within you can you celebrate?"
+    ];
+
+    function getRandomItem(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+
+    function openBox() {
+      boxLid.classList.add('open');
+      setTimeout(() => {
+        content.classList.add('visible');
+        
+        const randomToken = getRandomItem(Object.keys(tokenMap));
+        const tokenMeaning = tokenMap[randomToken];
+        const randomReflection = getRandomItem(reflections);
+
+        token.textContent = randomToken;
+        message.textContent = `Today's token represents ${tokenMeaning}.`;
+        reflection.textContent = randomReflection;
+      }, 250);
+    }
+
+    function closeBox() {
+      content.classList.remove('visible');
+      setTimeout(() => {
+        boxLid.classList.remove('open');
+      }, 250);
+    }
+
+    magicBox.addEventListener('click', () => {
+      if (boxLid.classList.contains('open')) {
+        closeBox();
+      } else {
+        openBox();
+      }
+    });
+  
+    
+    
+    </script>
+    
+    
+    </section>   
+    
+    
+</body>
+</html>
